@@ -19,14 +19,18 @@ cleanup() {
 trap 'cleanup' ERR SIGTERM SIGINT SIGHUP
 trap 'reclaim_gpus; echo "Exited normally."' EXIT
 
-N_SIMS=2                   # Number of simulation sets (sim_nr 0,1,2,...)
+N_SIMS=1                   # Number of simulation sets (sim_nr 0,1,2,...)
 conditions=(6)       # Array of conditions to run for each simulation
 start_nr=0                 # Simulation numbering starts here
 gpu="0,1,2,3,4,5,6,7"       # List of available GPUs (total = 8)
 
 # Activate virtual environment and navigate to working directory
 source ../agents/bin/activate
-cd reverie/backend_server/
+cd "$SCRIPT_DIR/reverie/backend_server" 
+
+echo "→ PWD is now: $(pwd)"
+ls -lah .
+
 
 # Split the GPU list into an array
 IFS=',' read -ra available_gpus <<< "$gpu"
