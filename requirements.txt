@@ -74,4 +74,5 @@ sentence-transformers
 transformers
 webdriver_manager
 huggingface-hub[cli]==0.30.2
+wheel
 https://github.com/turboderp/exllamav2/releases/download/v0.2.3/exllamav2-0.2.3+cu121.torch2.4.0-cp310-cp310-linux_x86_64.whl

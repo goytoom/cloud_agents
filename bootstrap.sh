@@ -11,7 +11,7 @@ trap 'echo "❌ Error on line $LINENO (exit code $?)"; exit 1' ERR
 # ────────────────────────────────────────────────────────────────
 # PREP: install system tools (git, venv & pip)
 # ────────────────────────────────────────────────────────────────
-apt-get update && apt-get install -y --no-install-recommends \
+apt update && apt install -y --no-install-recommends \
     git \
     python3-venv \
     python3-pip
@@ -31,9 +31,6 @@ python3 -m venv ../agents
 # (scripts run in a fresh shell by default)
 source ../agents/bin/activate
 
-echo "==> using pip: $(which pip)"
-pip --version
-
 # Upgrade pip
 pip install --upgrade pip
 
@@ -41,7 +38,9 @@ pip install --upgrade pip
 # 3) Install your Python deps
 # ────────────────────────────────────────────────────────────────
 pip install -r requirements.txt
-pip install flash-attn awscli huggingface-hub
+pip install awscli huggingface-hub
+pip install --no-build-isolation flash-attn
+
 
 # ────────────────────────────────────────────────────────────────
 # 4) Download your LLM from Hugging Face
