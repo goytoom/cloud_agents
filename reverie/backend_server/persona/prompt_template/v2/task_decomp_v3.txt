@@ -1,0 +1,57 @@
+task_decomp_v2.txt
+
+Variables: 
+!<INPUT 0>! -- Commonset
+!<INPUT 1>! -- Surrounding schedule description
+!<INPUT 2>! -- Persona first name
+!<INPUT 3>! -- Persona first name
+!<INPUT 4>! -- Current action
+!<INPUT 5>! -- curr time range
+!<INPUT 6>! -- Current action duration in min
+!<INPUT 7>! -- Persona first names
+!<INPUT 8>! -- Previous action
+
+<commentblockmarker>###</commentblockmarker>
+Task: List the subtasks for !<INPUT 2>! !<INPUT 4>!. 
+
+Here is an example of the exact format and style:
+Name: Kelly Bronson
+Age: 35
+Backstory: Kelly always wanted to be a teacher, and now she teaches kindergarten. During the week, she dedicates herself to her students, but on the weekends, she likes to try out new restaurants and hang out with friends. She is very warm and friendly, and loves caring for others.
+Personality: sweet, gentle, meticulous
+Location: Kelly is in an older condo that has the following areas: {kitchen, bedroom, dining, porch, office, bathroom, living room, hallway}.
+Currently: Kelly is a teacher during the school year. She teaches at the school but works on lesson plans at home. She is currently living alone in a single bedroom condo.
+Daily plan requirement: Kelly is planning to teach during the morning and work from home in the afternoon.
+
+Today is Saturday May 10. From 09:00am ~ 12:00pm, Kelly is planning on working on the next day's kindergarten lesson plan. 
+In 5 minute increments, list the subtasks (duration must be exactly a multiple of 5 minutes) Kelly does when Kelly is working on the next day's kindergarten lesson plan from 09:00am ~ 12:00pm (total duration in minutes: 180):
+Include the duration of each task and the remaining minutes. The duration of all subtasks must add up exactly to the total duration (make sure that the last task does not exceed the remaining minutes and does not fall short of any minutes).
+Never choose a subtask about changing the location (e.g., never go/walk/leave/etc somewhere).
+The subtask must be doable in the current location (e.g., you cannot get dressed at a cafe!).
+The subtask must be a logical, common part of the main activity. Ask yourself: Would I do [SUBTASK] when working on the next day's kindergarten lesson plan? 
+Important: The subtasks must not have anything in common with "planning on having breakfast", as Kelly has already done that. Duration must be exactly a multiple of 5 minutes.
+
+Start the list with "1) Kelly is "
+
+1) Kelly is reviewing the kindergarten curriculum standards. (duration in minutes: 15, minutes left: 165)
+2) Kelly is brainstorming ideas for the lesson. (duration in minutes: 30, minutes left: 135)
+3) Kelly is creating the lesson plan. (duration in minutes: 30, minutes left: 105)
+4) Kelly is creating materials for the lesson. (duration in minutes: 30, minutes left: 75)
+5) Kelly is taking a break. (duration in minutes: 15, minutes left: 60)
+6) Kelly is reviewing the lesson plan. (duration in minutes: 30, minutes left: 30)
+7) Kelly is making final changes to the lesson plan. (duration in minutes: 15, minutes left: 15)
+8) Kelly is printing the lesson plan. (duration in minutes: 10, minutes left: 5)
+9) Kelly is putting the lesson plan in her bag. (duration in minutes: 5, minutes left: 0)
+
+Instructions for !<INPUT 2>!: 
+!<INPUT 0>!
+!<INPUT 1>!
+In 5 minute increments, list the subtasks (duration must be exactly a multiple of 5 minutes) that !<INPUT 2>! does when !<INPUT 2>! is !<INPUT 4>! from !<INPUT 5>! (total duration in minutes !<INPUT 6>!). 
+Include the duration of each task and the remaining minutes. The duration of all subtasks must add up exactly to the total duration (make sure that the last task does not exceed the remaining minutes and does not fall short of any minutes).
+Never choose a subtask about changing the location (e.g., never go/walk/leave/etc somewhere).
+The subtask must be doable in the current location (e.g., you cannot get dressed at a cafe!).
+The subtask must be a logical, common part of the main activity. Ask yourself: Would I do <SUBTASK> when !<INPUT 4>!? 
+Follow the format demonstrated in Kelly's example closely, focusing on realistic duration and logical sequencing of tasks. Only list the subtask for exactly this timeframe. Do not add anything else after the list.
+!<INPUT 8>! Duration must be exactly a multiple of 5 minutes.
+
+Start the list with "1) !<INPUT 2>! is "

@@ -1,0 +1,21 @@
+generate_obj_event_v1.txt
+
+Variables: 
+!<INPUT 0>! -- Object name 
+!<INPUT 1>! -- Persona name
+!<INPUT 2>! -- Persona action event description 
+!<INPUT 3>! -- Object name 
+!<INPUT 4>! -- Object name 
+
+<commentblockmarker>###</commentblockmarker>
+Task: Describe the state of an object as it is being interacted with. Focus on the change of condition the object is in as a direct result of this interaction. Consider an appropriate consequence of the activity on the object.
+
+Let's analyze the situation step by step to understand the impact of the action on the object.
+We want to know what is happening to !<INPUT 0>! now.
+Step 1. !<INPUT 1>! is !<INPUT 2>!.
+Step 2. During this activity, !<INPUT 1>! is affecting !<INPUT 3>!.
+Step 3. Describe the state of !<INPUT 4>! at this moment?
+Response: !<INPUT 4>! is <fill in>
+Important: It should be the logical state of the object after being interacted with!
+
+Based on the action described, infer the most fitting description of the !<INPUT 4>!'s current state. Keep your answer concise (no more than 4-5 words) and focus solely on describing the object's current state.

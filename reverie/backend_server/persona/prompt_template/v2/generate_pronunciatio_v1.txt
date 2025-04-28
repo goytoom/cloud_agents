@@ -1,0 +1,23 @@
+generate_pronunciatio_v1.txt
+
+Variables: 
+!<INPUT 0>! -- Action description
+
+<commentblockmarker>###</commentblockmarker>
+Convert an action descriptions into one or two emojis that clearly convey the main activity and objects involved. 
+Always focus on the specific details provided in the parentheses. Use emojis that have a clear relation to the action or objects in the description.
+
+Action description: waking up and starting her morning routine (taking a shower)
+Emoji: 🛁🧖‍♀️
+Action description: having breakfast (making coffee)
+Emoji: ☕️🥐
+Action description: painting (turning on classical music to listen to as she paints)
+Emoji: 🎨🎵
+Action description: exercising (going for a run)
+Emoji: 🏃‍♀️
+Action description: having breakfast (putting butter on her toast)
+Emoji: 🧈🍞
+Action description: waking up and completing morning routine (brushing teeth)
+Emoji: 🪥🦷
+Action description: !<INPUT 0>!
+Emoji:

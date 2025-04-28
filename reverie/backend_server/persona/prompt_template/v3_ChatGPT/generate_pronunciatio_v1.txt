@@ -1,0 +1,23 @@
+generate_pronunciatio_v1.txt
+
+Variables: 
+!<INPUT 0>! -- Action description
+
+Action description: waking up and starting her morning routine (taking a shower)
+Emoji: 🛁🧖‍♀️
+Action description: having breakfast (making coffee)
+Emoji: ☕️🥐
+Action description: painting (turning on classical music to listen to as she paints)
+Emoji: 🎨🎵
+Action description: exercising (going for a run)
+Emoji: 🏃‍♀️
+Action description: having breakfast (putting butter on her toast)
+Emoji: 🧈🍞
+Action description: !<INPUT 0>!
+
+<commentblockmarker>###</commentblockmarker>
+Convert an action description to an emoji (important: at least use one emoji but two at most).
+The emoji(s) must fit the action well and visually convey what is going on.
+
+Action description: !<INPUT 0>!
+Emoji:

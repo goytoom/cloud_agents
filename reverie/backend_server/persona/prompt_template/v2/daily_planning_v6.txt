@@ -1,0 +1,22 @@
+daily_planning_v6.txt
+
+Variables: 
+!<INPUT 0>! -- Commonset
+!<INPUT 1>! -- Lifestyle
+!<INPUT 2>! -- Reverie date time now
+!<INPUT 3>! -- Persona first names
+!<INPUT 4>! -- wake_up_hour
+
+<commentblockmarker>###</commentblockmarker>
+!<INPUT 0>!
+
+Create a BROAD AND BRIEF schedule outline for !<INPUT 3>! for today, !<INPUT 2>!. 
+Begin with waking up at !<INPUT 4>! and finish with sleeping at the time specified in "Lifestyle". 
+Ensure all activities align with !<INPUT 3>!'s "Daily plan requirement" from waking up to going to sleep and are in logical order (e.g., have breakfast before work, have lunch not too late).
+Strictly follow this format: '<Activity> at <Time (AM/PM)>'. Round up time points to the next full hour. If unknown, determine the time based on what makes most sense for the schedule (e.g., don't leave work place during work hours).
+Never add comments to the schedule (e.g., in parentheses), only list the activities and times. 
+Only provide the list. Do not add a single word, sentence, comment, note after the list (e.g., no "Please note that ...").
+
+Important: Focus on key activities (optional free time), and end the day with sleeping. Never describe going to a place. Don't work at night/weekends, unless specified.
+
+Now, list the activities starting with "1)". List each activity on a new line.

@@ -1,0 +1,28 @@
+generate_hourly_schedule_v2.txt
+
+Variables: 
+!<INPUT 0>! -- Schedule format
+!<INPUT 1>! -- Commonset
+!<INPUT 2>! -- prior_schedule
+!<INPUT 3>! -- intermission_str
+!<INPUT 4>! -- intermission 2
+!<INPUT 5>! -- prompt_ending
+!<INPUT 6>! -- Persona first name
+
+<commentblockmarker>###</commentblockmarker>
+Task: Determine !<INPUT 6>!'s next activity, based on the "Character Overview", "Today's Schedule Outline", and "Previous Activities" below.
+Follow this format exactly: "!<INPUT 6>! is <DOING ACTIVITY>." Do not include time points in the activity description.
+Make sure the next activity aligns with the character overview and all previous activities (e.g, don't forget activities from the outline and don't contradict previous activities). Pay special attention the last activity and determine what can logically follow (e.g., don't take breaks for hours during work).
+Critical: You must include key points from Today's Schedule Outline (e.g., breakfast, dinner, sleep) at the closest time slot.
+
+
+Character Overview:
+!<INPUT 1>!
+
+Today's Schedule Outline:
+!<INPUT 3>!
+
+Previous Activities:
+!<INPUT 2>!
+
+Next Time Slot: !<INPUT 5>!

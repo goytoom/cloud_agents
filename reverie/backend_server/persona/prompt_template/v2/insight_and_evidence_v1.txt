@@ -1,0 +1,13 @@
+insight_and_evidence_v1.txt
+
+Variables: 
+!<INPUT 0>! -- Numbered list of event/thought statements
+!<INPUT 1>! -- target persona name or "the conversation"
+
+<commentblockmarker>###</commentblockmarker>
+Below is a list of statements. Your task is to infer exactly !<INPUT 1>! high-level insights from these statements. For each insight, output one line strictly following this exact format (do not add any extra punctuation or text):
+
+<Number>. <insight> (because of <numbers of relevant statements>)
+
+Statements:
+!<INPUT 0>! 

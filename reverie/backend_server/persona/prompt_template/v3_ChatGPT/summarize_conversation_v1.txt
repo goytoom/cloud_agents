@@ -1,0 +1,14 @@
+summarize_conversation_v1.txt
+
+Variables: 
+!<INPUT 0>! -- init_persona_name
+
+<commentblockmarker>###</commentblockmarker>
+Conversation: 
+!<INPUT 0>!
+
+Summarize the conversation above in one brief sentence:
+This is a conversation about <fill in>
+
+The output must continue the sentence above by filling in the <fill in> tag.
+Do not start with 'this is a conversation about...' just finish the sentence and add important details.
