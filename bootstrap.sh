@@ -14,7 +14,8 @@ trap 'echo "❌ Error on line $LINENO (exit code $?)"; exit 1' ERR
 apt update && apt install -y --no-install-recommends \
     git \
     python3-venv \
-    python3-pip
+    python3-pip \
+    micro
 rm -rf /var/lib/apt/lists/*
 
 # ────────────────────────────────────────────────────────────────
@@ -40,7 +41,6 @@ pip install --upgrade pip
 pip install -r requirements.txt
 pip install awscli huggingface-hub
 pip install --no-build-isolation flash-attn
-
 
 # ────────────────────────────────────────────────────────────────
 # 4) Download your LLM from Hugging Face
