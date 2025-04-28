@@ -116,7 +116,7 @@ stdbuf -oL -eL python3 reverie.py \
         --sim_nr "$sim" \
         --gc "$gc" \
         --model_name "Mistral-Small-24B-Instruct-2501-6.5bpw-h8-exl2" \
-        --model_dir "$HOME/models/" \
+        --model_dir "$SCRIPT_DIR/../models/" \
         > >(gzip -c > "$LOG_DIR/output_gc_${gc}_sim_${sim}.out.gz") \
       2> >(gzip -c > "$LOG_DIR/output_gc_${gc}_sim_${sim}.err.gz") &
 
