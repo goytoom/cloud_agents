@@ -1,50 +1,40 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ── 1) parameters ────────────────────────────────────────────────────────────
-VENV_DIR="agents"                                  # where to install your venv
-MODEL_ID="avsolatorio/GIST-small-Embedding-v0"     # huggingface model to fetch
-MODEL_CACHE="$HOME/workspace/models"                         # where to snapshot_download
-EXTRA_PKGS=(flash-attn)                            # any pkgs not in requirements.txt
-REQUIREMENTS="requirements.txt"
+# ────────────────────────────────────────────────────────────────
+# 1) clone the code
+# ────────────────────────────────────────────────────────────────
+# If your repo is PUBLIC you can omit credentials.
+git clone https://github.com/goytoom/cloud_agents.git
+cd cloud_agents
 
-# ── 2) make sure we have Python & git ───────────────────────────────────────
-command -v python3 >/dev/null 2>&1 || { echo "❌ python3 not found"; exit 1; }
-command -v git     >/dev/null 2>&1 || { echo "❌ git     not found"; exit 1; }
+# ────────────────────────────────────────────────────────────────
+# 2) create & activate a venv, install core deps
+# ────────────────────────────────────────────────────────────────
+python3 -m venv ../agents
+source ../agents/bin/activate
+pip install --upgrade pip
 
-# ── 3) create & activate venv ───────────────────────────────────────────────
-if [ ! -d "$VENV_DIR" ]; then
-  echo "🔧 creating virtualenv in ./$VENV_DIR"
-  python3 -m venv "$VENV_DIR"
-fi
-source "$VENV_DIR/bin/activate"
+# install everything in requirements.txt
+pip install -r requirements.txt
 
-# ── 4) upgrade pip, install base deps ───────────────────────────────────────
-echo "📦 upgrading pip & installing from $REQUIREMENTS"
-pip install --upgrade pip setuptools wheel
-pip install -r "$REQUIREMENTS"
+# ────────────────────────────────────────────────────────────────
+# 3) install extra packages in order
+# ────────────────────────────────────────────────────────────────
+# flash-attn sometimes needs to come *after* your main deps:
+pip install flash-attn
+pip install awscli
 
-# ── 5) install extra packages in the right order ───────────────────────────
-if [ "${#EXTRA_PKGS[@]}" -gt 0 ]; then
-  echo "➕ installing extra pip packages: ${EXTRA_PKGS[*]}"
-  pip install "${EXTRA_PKGS[@]}"
-fi
+# ────────────────────────────────────────────────────────────────
+# 4) download your LLM with the HF CLI
+# ────────────────────────────────────────────────────────────────
+# requires that you have done: `pip install huggingface_hub`
+# and have set HF_TOKEN in environment, or run `huggingface-cli login`
+export MODEL_DIR="../models/Mistral-Small-24B-Instruct-2501-6.5bpw-h8-exl2"
+mkdir -p "$MODEL_DIR"
+huggingface-cli download \
+  matatonic/Mistral-Small-24B-Instruct-2501-6.5bpw-h8-exl2 \
+  --repo-type model \
+  --local-dir "$MODEL_DIR"
 
-# ── 6) install CLI tools for downstream steps ───────────────────────────────
-echo "🔧 installing awscli & huggingface_hub"
-pip install --upgrade awscli huggingface_hub
-
-# ── 7) fetch your LLM embedding model once ──────────────────────────────────
-echo "📥 snapshot-downloading HuggingFace model $MODEL_ID → $MODEL_CACHE"
-python3 - <<EOF
-from huggingface_hub import snapshot_download
-import os
-os.makedirs("$MODEL_CACHE", exist_ok=True)
-snapshot_download(
-    repo_id="$MODEL_ID",
-    cache_dir="$MODEL_CACHE",
-    resume_download=True
-)
-EOF
-
-echo "✅ bootstrap complete!  Activate with  source $VENV_DIR/bin/activate"
+echo "✅ bootstrap complete!"
